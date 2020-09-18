@@ -4,16 +4,21 @@ class Stack
     end
 
     def push(el)
-        @stack.push(el)
+        stack.push(el) # use getter to access the array instead of referencing ivar, because instance variables fail silently and methods fail loudly
+        el
     end
 
     def pop
-        @stack.pop
+        stack.pop
     end
 
     def peek
-        @stack[0]
+        stack.last
     end
+
+    private # we don't want the user to accidentally access this array and mutate it
+    attr_reader :stack
+
 end
 
 class Queue
@@ -22,16 +27,21 @@ class Queue
     end
 
     def enqueue(el)
-        @queue.push(el)
+        queue.push(el)
+        el
     end
 
     def dequeue
-        @queue.shift
+        queue.shift
     end
 
     def peek
-        @queue.first
+        queue.first
     end
+
+    private # we don't want the user to accidentally access this array and mutate it
+    attr_reader :queue
+
 end
 
 class Map
@@ -40,21 +50,24 @@ class Map
     end
 
     def set(key,value)
-        @map.push([key,value]) if @map.count { |ele| ele[0] == key } < 1
+        map.push([key,value]) if map.count { |ele| ele[0] == key } < 1
     end
 
     def get(key)
-        @map.each do |ele| 
+        map.each do |ele| 
             return ele if ele[0] == key
         end
     end
 
     def delete(key)
-        @map.delete_if { |ele| ele[0] == key }
+        map.delete_if { |ele| ele[0] == key }
     end
 
     def show
-        @map.first
+        map.first
     end
+
+    private # we don't want the user to accidentally access this array and mutate it
+    attr_reader :map
 
 end
