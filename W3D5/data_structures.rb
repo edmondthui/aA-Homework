@@ -64,7 +64,7 @@ class Map
     end
 
     def show
-        map.first
+        deep_dup(map)
     end
 
     private # we don't want the user to accidentally access this array and mutate it
