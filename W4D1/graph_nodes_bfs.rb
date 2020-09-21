@@ -27,11 +27,10 @@ def bfs(starting_node, target_value)
 
     until queue.empty?
         node = queue.shift
-        puts node.value
 
         node.neighbors.each do |node|
             break if visited_set.include?(node)
-            return node if node.value == target_value
+            return node.value if node.value == target_value
             visited_set.add(node)
             queue << node
         end
