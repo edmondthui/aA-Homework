@@ -17,13 +17,13 @@ class User < ApplicationRecord
     before_validation :ensure_session_token
     validates :username, presence: true
     validates :session_token, presence: true
-    validates :password_digest, presence: { message: "Password can't be blank" }
+    validates :password_digest, presence: true
     validates :password, length: {minimum: 6, allow_nil: true}
 
 
     def self.find_by_credentials(username, password)
-        user = User.find_by(username: username)
-        user
+        user = User.find_by(username: username) #finds the user in the database with username passed in
+        user.password_digest.is_password?(password) ? user : false #checks the password_digest of the user to see if the password passed in is the same after hashing
     end
 
     def self.generate_session_token
@@ -32,7 +32,7 @@ class User < ApplicationRecord
 
     def reset_session_token!
         new_token = User.generate_session_token
-        self.session_token = new_token
+        self.update_attribute(:session_token, new_token) #updates the attribute in the server now
     end
 
     def ensure_session_token
@@ -45,7 +45,10 @@ class User < ApplicationRecord
 
     def password=(password)
         @password = password
-        safe_password = BCrypt::Password.create(@password)
-        self.password_digest= safe_password.to_s
+        self.password_digest = BCrypt::Password.create(@password) #removed the to_s need to be Class Password to run is_password?
+    end
+
+    def password_digest #helper method to change the user's password digest from Class String to Class BCrypt::Password
+        BCrypt::Password.new(super)
     end
 end
