@@ -1,24 +1,7 @@
-# README
+# W5D4 HOMEWORK
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Created a simple rails project to model the relationships between people and houses. 
 
-Things you may want to cover:
+A person lives in a house and each house will have an address. We can call House.residents to get a list of people that live in that House. 
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+You can also call Person.house to get the House of that Person.
