@@ -4,7 +4,7 @@
   <%= render "shared/errors" %>
 
   <form action="<%= cat_rental_requests_url %>" method="post">
-  
+
     <%= auth_token %>
 
     <label for="cat_rental_request_cat_id">Cat</label>
@@ -40,3 +40,7 @@
     <input type="submit">
   </form>
 </div></section>
+
+<% content_for :footer do %>
+  <p> This is the rent cat page. </p>
+<% end %>
