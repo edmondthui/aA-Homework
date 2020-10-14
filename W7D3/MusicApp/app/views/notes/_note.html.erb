@@ -1,0 +1,17 @@
+<body>
+    <% notes = @track.notes %>
+    <% notes.each do |note| %>
+        <p><%= note.note %> </p>
+        <% author = User.find(note.user_id) %>
+        <p>Author: <%= author.email %></p>
+    <% end %>
+
+    <br/>
+    <form action="<%#TO DO MAKE ROUTE FOR NEW NOTE%>" method = "POST">
+    <label for="note">New Note: </label><br/>
+    <textarea name="note[note]" id="note"></textarea><br/>
+    <input type="submit" value = "Submit Note">
+    
+    
+    </form>
+</body>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MusicApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+<header class = "header">
+  <h1 class = "title"><a href="<%=bands_url%>" class = "title-link">Edmond's Music App</a></h1>
+
+  
+  <% if logged_in? %>
+    <h1> Welcome back, <%= current_user.email %> </h1>
+    <form action="<%= session_url %>" method = "POST">
+    <input type="hidden" name = "_method" value = "DELETE">
+    <input type="hidden" name = "authenticity_token" value = "<%=form_authenticity_token%>">
+    <input type="submit" value = "Log Out" class = "button">  
+    </form>
+  <% else %>
+  <div class = "button">
+    <button><a href=" <%=new_user_url%>"> Sign Up </a> </button>
+    <button><a href="<%=new_session_url%>">Log In</a></button>
+  </div>
+  <% end %>
+
+</header>
+
+
+
+
+  <body>
+
+
+    <%= yield %>
+  </body>
+</html>

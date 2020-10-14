@@ -1,0 +1,35 @@
+<body>
+    <h1> New Track </h1>
+
+    <form action="<%= tracks_url %>" method= "POST">
+    <input type="hidden" name= "authenticity_token" value = "<%=form_authenticity_token%>">
+    <label for="title">Title: </label>
+    <input type="text" id="title" name="track[title]">
+    <br/><br/>
+    <label for="ord">Track Number: </label>
+    <input type="number" id= "ord" name= "track[ord]" >
+    <br/><br/>
+    <label for="album">Album: </label>
+
+    <select name="track[album_id]" id="album">
+        <option value="select"disabled>Choose a Album</option>
+        <% albums = Album.all.each do |album| %>
+        <option value="<%=album.id%>" <%= album.id == params[:album_id] ? "selected" : ""  %>><%= album.title %></option>
+        <% end %>
+    </select>
+    <br/><br/>
+
+    <label for="type">Track Type: </label>
+    <input type="radio" name="track[bonus]" id ="bonus" value ="true">
+    <label for="bonus">Bonus</label>
+    <input type="radio" name="track[bonus]" id="regular" value ="false">
+    <label for="regular">Regular</label>
+
+    <br/><br/>
+    <label for="lyrics">Lyrics: </label><br/>
+    <textarea name="track[lyrics]" id="lyrics"></textarea> <br/>
+
+
+    <input type="submit" value = "Create Track">
+    </form>
+</body>
