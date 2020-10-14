@@ -1,7 +1,5 @@
-# W7D2 Music App
+# W7D3 Music App Homework
 
-We're going to build an inventory system for record labels. 
+Today I'll be testing the Music App I created in class using the code from today's assignment.
 
-This app will let them track their Bands, Albums and Tracks. 
-
-Additionally we'll offer user accounts so users can comment on our inventory.
+Creating RSpec with Capybara for rails models, controllers, and integrations tests.
