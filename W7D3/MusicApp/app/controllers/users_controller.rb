@@ -18,7 +18,7 @@ class UsersController < ApplicationController
         unless user.nil?
             if user.save
                 session[:session_token] = user.reset_session_token!
-                redirect_to user_url(user)
+                redirect_to bands_url
             else
                 flash.now[:error] = "Invalid Login"
                 render :new
