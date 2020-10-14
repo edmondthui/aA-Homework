@@ -33,7 +33,14 @@
 
 
   <body>
-
+    <br/>
+    <% if flash[:error] %>
+        <% flash[:error].each do |error| %>
+        <ul>
+        <li><%= error %></li>
+        </ul>
+        <% end %>
+    <% end %>
 
     <%= yield %>
   </body>

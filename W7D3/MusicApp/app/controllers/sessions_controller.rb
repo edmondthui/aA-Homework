@@ -6,16 +6,14 @@ class SessionsController < ApplicationController
 
     def create
         user = User.find_by_credentials(params[:user][:email], params[:user][:password])
-        unless user.nil?
-            if user.save
-                session[:session_token] = user.reset_session_token!
-                redirect_to user_url(user)
-            else
-                flash.now[:error] = "Invalid Login"
-                render :new
-            end
+        if user.nil?
+            flash.now[:error] = ["Invalid Login"]
+            render :new
+        elsif user.save
+            session[:session_token] = user.reset_session_token!
+            redirect_to user_url(user)
         else
-            flash.now[:error] = "Invalid Login"
+            flash.now[:error] = ["Invalid Login"]
             render :new
         end
     end

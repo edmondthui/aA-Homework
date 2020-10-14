@@ -12,7 +12,7 @@ class BandsController < ApplicationController
         if band.save
             redirect_to bands_url
         else
-            flash.now[:error] = "Invalid Band"
+            flash.now[:error] = ["Invalid Band"]
             render :new
         end
     end

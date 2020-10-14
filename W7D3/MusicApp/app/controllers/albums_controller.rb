@@ -11,7 +11,7 @@ class AlbumsController < ApplicationController
         if album.save
             redirect_to album_url(album)
         else
-            flash.now[:error] = "Invalid Album"
+            flash.now[:error] = ["Invalid Album"]
             render :new
         end
     end
@@ -31,7 +31,7 @@ class AlbumsController < ApplicationController
         if album.update(album_params)
             redirect_to album_url(album)
         else
-            flash.now[:error] = "Invalid Album"
+            flash.now[:error] = ["Invalid Album"]
             render :new
         end
     end

@@ -11,7 +11,7 @@ class TracksController < ApplicationController
         if track.save
             redirect_to track_url(track)
         else
-            flash.now[:error] = "Invalid Track"
+            flash.now[:error] = ["Invalid Track"]
             render :new
         end
     end
@@ -31,7 +31,7 @@ class TracksController < ApplicationController
         if track.update(track_params)
             redirect_to track_url(track)
         else
-            flash.now[:error] = "Invalid Track"
+            flash.now[:error] = ["Invalid Track"]
             render :new
         end
     end
