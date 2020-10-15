@@ -5,6 +5,8 @@
     background-color: #fff;
     margin: auto;
     color: #000;
+    border-left: 1px #ccc solid;
+    border-right: 1px #ccc solid;
 }
 
 .content-sidebar {
@@ -17,6 +19,7 @@
     float: left;
     width: 620px;
     padding: 20px;
+
 }
 
 .content h1 {
