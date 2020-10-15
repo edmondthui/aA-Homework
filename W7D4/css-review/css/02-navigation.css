@@ -1,7 +1,9 @@
 /* PHASE 2: Navigation */
 
 .header-logo {
-
+    float: left;
+    font-weight: 700;
+    border-right: 1px #ccc solid;
 }
 
 .header-logo:hover {
@@ -9,13 +11,15 @@
 }
 
 .header-list {
-
+    float: right;
 }
 
 .header-list > li {
-
+    float: left;
+    border-left: 1px #ccc solid;
 }
 
 .header-list > li:hover {
+    background-color: #000;
 
 }
