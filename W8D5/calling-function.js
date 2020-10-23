@@ -16,4 +16,4 @@ function Cat () {
   const Noodles = new Dog ();
 
   Noodles.chase.call(Markov, Noodles) // My name is Markov and I'm chasing Noodles! Woof!
-  Noodles.chase.apply([Markov, Noodles]) // My name is Markov and I'm chasing Noodles! Woof!
+  Noodles.chase.apply(Markov, [Noodles]) // My name is Markov and I'm chasing Noodles! Woof!
